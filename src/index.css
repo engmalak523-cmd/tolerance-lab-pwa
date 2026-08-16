@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-ink: #111111;
+  --color-slate: #2A2A2A;
+  --color-concrete: #8A8A8A;
+  --color-bone: #F5F5F0;
+  --color-line: #E0E0DA;
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-bone);
+  color: var(--color-ink);
+  font-family: 'Inter', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Selection */
+::selection {
+  background: var(--color-ink);
+  color: var(--color-bone);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-bone);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-concrete);
+  border-radius: 0;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-slate);
+}
+
+/* Editable text cursor */
+[contenteditable="true"] {
+  cursor: text;
+  outline: none;
+  transition: background-color 0.2s ease;
+  border-radius: 2px;
+}
+[contenteditable="true"]:hover {
+  background-color: rgba(17, 17, 17, 0.04);
+}
+[contenteditable="true"]:focus {
+  background-color: rgba(17, 17, 17, 0.06);
+  box-shadow: 0 1px 0 0 var(--color-ink);
+}
+
+/* Grid pattern background */
+.bg-grid {
+  background-image:
+    linear-gradient(to right, rgba(17, 17, 17, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(17, 17, 17, 0.04) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+.bg-grid-dark {
+  background-image:
+    linear-gradient(to right, rgba(245, 245, 240, 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(245, 245, 240, 0.06) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+/* Noise texture */
+.noise {
+  position: relative;
+}
+.noise::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Checkbox custom */
+.lab-checkbox {
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border: 1.5px solid var(--color-concrete);
+  border-radius: 2px;
+  cursor: pointer;
+  position: relative;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+}
+.lab-checkbox:checked {
+  background: var(--color-ink);
+  border-color: var(--color-ink);
+}
+.lab-checkbox:checked::after {
+  content: '';
+  position: absolute;
+  left: 5px;
+  top: 1px;
+  width: 5px;
+  height: 10px;
+  border: solid var(--color-bone);
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+/* Stagger animation delays */
+.delay-0 { animation-delay: 0ms; }
+.delay-1 { animation-delay: 80ms; }
+.delay-2 { animation-delay: 160ms; }
+.delay-3 { animation-delay: 240ms; }
+.delay-4 { animation-delay: 320ms; }
+.delay-5 { animation-delay: 400ms; }
+.delay-6 { animation-delay: 480ms; }
+
+@media print {
+  .no-print { display: none; }
+}
