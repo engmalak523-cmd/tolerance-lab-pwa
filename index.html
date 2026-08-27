@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/icon-192.svg" />
+    <link rel="apple-touch-icon" href="/icon-192.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#111111" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="TOLERANCE LAB" />
+    <link rel="manifest" href="/manifest.json" />
+    <title>TOLERANCE LAB — Pearson STEAM by Eng Malak</title>
+    <meta name="description" content="Structured English Lab // Pearson x STEAM. By Eng Malak." />
+    <meta property="og:title" content="TOLERANCE LAB — Pearson STEAM" />
+    <meta property="og:description" content="Structured English Lab // Pearson x STEAM. By Eng Malak." />
+    <meta property="og:image" content="/icon-512.svg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="/icon-512.svg" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js').catch(() => {});
+        });
+      }
+    </script>
+  </body>
+</html>
